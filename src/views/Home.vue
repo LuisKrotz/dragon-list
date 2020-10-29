@@ -1,18 +1,39 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div :class="'home ' + (!loaded ? 'loading': '')">
+    <DragonList :dragons="dragons"/>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import DragonList from '@/components/DragonList.vue'
 
 export default {
   name: 'Home',
   components: {
-    HelloWorld
+    DragonList
+  },
+  data() {
+    return {
+      dragons: [],
+      loaded: false
+    }
+  },
+  mounted() {
+    this.getPost();
+  },
+  methods: {
+    getPost() {
+      let self = this;
+
+      fetch(`${self.$parent.api}/dragon`)
+        .then((response) => {
+          return response.json();
+        }).then((data) => {
+          self.dragons = data;
+          self.loaded = true;
+        });
+    }
   }
 }
 </script>

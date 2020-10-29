@@ -2,11 +2,26 @@
   <div id="app">
     <div id="nav">
       <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <router-link to="/user-area">Login</router-link>
     </div>
+
     <router-view/>
   </div>
 </template>
+
+<script>
+// @ is an alias to /src
+import DragonList from '@/components/DragonList.vue'
+
+export default {
+  data() {
+    return {
+      api: 'http://5c4b2a47aa8ee500142b4887.mockapi.io/api/v1'
+    }
+  }
+}
+</script>
+
 
 <style lang="scss">
 #app {
