@@ -2,7 +2,7 @@
   <div id="app">
     <div class="nav">
       <div class="max-area nav-flex">
-        <router-link class="nav-link" to="/"><img :src="origin + '/img/logo/logo.svg'" height="64"><h2 class="hdn">Menu</h2></router-link>
+        <router-link class="nav-link" to="/"><img class="nav-logo" :src="origin + '/img/logo/logo.svg'" height="64"><h2 class="hdn">Menu</h2></router-link>
         <div>
           <router-link class="nav-link" to="/">Dragon List</router-link> |
           <router-link class="nav-link" to="/user-area">Creation Area</router-link>

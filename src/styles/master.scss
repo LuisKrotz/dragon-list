@@ -20,6 +20,7 @@
     height: to-rem(64);
     z-index: $z-header;
     height: to-rem(64);
+
     &-flex {
         height: 100%;
         display: flex;
@@ -27,11 +28,19 @@
     }
 
     &-logo {
-        width: to-rem(95);
         height: to-rem(64);
-        object-fit: cover;
+        object-fit: contain;
         display: block;
         margin-left: to-rem(-15);
+        width: to-rem(53);
+
+        @include layout-375() {
+            width: to-rem(75);
+        }
+
+        @include layout-414() {
+            width: to-rem(95);
+        }
     }
 
     &-link {
