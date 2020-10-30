@@ -135,7 +135,8 @@
         color: $color-error;
     }
 
-    &-input {
+    &-input,
+    &-link {
         outline: none;
         transition: border-color .3s linear;
         box-sizing: border-box;
@@ -146,22 +147,6 @@
         min-width: 100%;
         padding: 0 to-rem(8);
 
-        &:read-only {
-            background-color: $color-white;
-            border: none;
-            border-radius: 0;
-            padding: 0;
-
-            .col-2 & {
-                line-height: to-rem(24);
-                padding-bottom: to-rem(8);
-
-                @include layout-768() {
-                    line-height: to-rem(46);
-                }
-            }
-        }
-
         &::placeholder,
         &:placeholder-shown {
             color: lighten($color-black, 20%);
@@ -170,9 +155,29 @@
         &:focus {
             border-color: $color-black;
         }
+    }
 
-        &:read-only:focus {
-            border: none;
+    &-link {
+        transition: color ease-out .3s;
+        background-color: $color-white;
+        border: none;
+        border-radius: 0;
+        padding: 0;
+        text-decoration: none;
+        line-height: to-rem(24);
+        padding-bottom: to-rem(8);
+
+        @include layout-768() {
+            line-height: to-rem(46);
+        }
+
+        &:hover,
+        &:focus {
+            color: $color-accent-2;
+        }
+
+        &:visited {
+            color: lighten($color-black, 80);
         }
     }
 

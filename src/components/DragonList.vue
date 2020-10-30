@@ -24,12 +24,12 @@
               <div class="dragon-list-item" v-for="dragon in dragons" :key="dragon.id">
                 <div class="dragon-list-cell">
                   <label class="dragon-list-label" :for="'dragon_name_edit' + dragon.id">Name: </label>
-                  <input v-if="!crud" class="dragon-list-input" type="text" :value="dragon.name" readonly>
+                  <router-link :to="'/dragon?id=' + dragon.id" v-if="!crud" class="dragon-list-link">{{ dragon.name }}</router-link>
                   <input v-else class="dragon-list-input" type="text" ref="dragon_name_edit" name="dragon_name_edit" :data-name-edit="dragon.id" :id="'dragon_name_edit' + dragon.id" :value="dragon.name">
                 </div>
                 <div class="dragon-list-cell">
                   <label class="dragon-list-label" :for="'dragon_type_edit' + dragon.id">Type: </label>
-                  <input v-if="!crud" class="dragon-list-input" type="text" :value="dragon.type" readonly>
+                  <router-link v-if="!crud"  :to="'/dragon?id=' + dragon.id" class="dragon-list-link">{{ dragon.type }}</router-link>
                   <input v-else class="dragon-list-input" type="text" ref="dragon_type_edit" name="dragon_type_edit" :data-type-edit="dragon.id" :id="'dragon_type_edit' + dragon.id" :value="dragon.type">
                 </div>
                 <div class="dragon-list-cell buttons" v-if="crud">
