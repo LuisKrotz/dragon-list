@@ -15,15 +15,9 @@ npm run serve
 npm run build
 ```
 
-### Run your tests
-```
-npm run test
-```
 
-### Lints and fixes files
+## FAKE PASSWORS
 ```
-npm run lint
+admin / admin
+user / user
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
