@@ -1,8 +1,13 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/user-area">Login</router-link>
+    <div class="nav">
+      <div class="max-area nav-flex">
+        <router-link class="nav-link" to="/"><img :src="origin + '/img/logo/logo.svg'" height="64"><h2 class="hdn">Menu</h2></router-link>
+        <div>
+          <router-link class="nav-link" to="/">Dragon List</router-link> |
+          <router-link class="nav-link" to="/user-area">Creation Area</router-link>
+        </div>
+      </div>
     </div>
 
     <router-view/>
@@ -16,7 +21,8 @@ import DragonList from '@/components/DragonList.vue'
 export default {
   data() {
     return {
-      api: 'http://5c4b2a47aa8ee500142b4887.mockapi.io/api/v1'
+      origin: window.location.origin,
+      api: 'http://5c4b2a47aa8ee500142b4887.mockapi.io/api/v1/dragon/'
     }
   }
 }
@@ -24,24 +30,9 @@ export default {
 
 
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+@import 'styles/variables';
+@import 'styles/mixins';
+@import 'styles/structure';
 
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
-}
+@import 'styles/master';
 </style>
