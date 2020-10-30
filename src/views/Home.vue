@@ -1,6 +1,6 @@
 <template>
-  <div :class="'home ' + (!loaded ? 'loading': '')">
-    <DragonList :dragons="dragons"/>
+  <div class="home">
+    <DragonList />
   </div>
 </template>
 
@@ -10,30 +10,18 @@ import DragonList from '@/components/DragonList.vue'
 
 export default {
   name: 'Home',
-  components: {
-    DragonList
-  },
   data() {
     return {
-      dragons: [],
-      loaded: false
+      api: this.$parent.api
     }
   },
-  mounted() {
-    this.getPost();
-  },
-  methods: {
-    getPost() {
-      let self = this;
-
-      fetch(`${self.$parent.api}/dragon`)
-        .then((response) => {
-          return response.json();
-        }).then((data) => {
-          self.dragons = data;
-          self.loaded = true;
-        });
-    }
+  components: {
+    DragonList
   }
 }
 </script>
+
+<style lang="scss">
+  @import '../styles/variables';
+  @import '../styles/mixins';
+</style>
