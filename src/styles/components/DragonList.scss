@@ -122,6 +122,10 @@
         @include layout-768() {
             display: none;
         }
+
+        .col-2 & {
+            padding-bottom: to-rem(0);
+        }
     }
 
     &-error {
@@ -147,6 +151,15 @@
             border: none;
             border-radius: 0;
             padding: 0;
+
+            .col-2 & {
+                line-height: to-rem(24);
+                padding-bottom: to-rem(8);
+
+                @include layout-768() {
+                    line-height: to-rem(46);
+                }
+            }
         }
 
         &::placeholder,
